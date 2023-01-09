@@ -1,0 +1,199 @@
+.sidebar{
+    background: $color-1;
+    font-family: $font-1;
+    height: 100%;
+    min-height: $minHeight;
+    width: 264px;
+    margin-right: 8px;
+    border-radius: $borderRadius;
+    position: relative;
+    display: grid;
+    // 1 colonne = 1fr
+    grid-template-columns: 1fr;
+    // 3 lines : la 2éme flexible
+    grid-template-rows: 250px 1fr 108px;
+    // disposition des lignes
+    grid-template-areas: 
+     "1"
+     "2"
+     "3"
+    ;
+
+    @media screen and (max-width: 850px){
+        display: flex;
+        width: 100%;
+        min-height: 50px;
+        margin-bottom:0.2rem;
+    }
+   
+    .id{
+        // la 1ér grille
+        grid-area: 1;
+        text-align: center;
+        user-select: none;
+        position: relative;
+
+        @media screen and (max-width: 850px){
+            display: none;           
+        }
+
+        .idContent {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100%;
+
+            img{
+                width: 140px;
+                height: 140px;
+                border-radius: 50%;
+                box-shadow: 0 0 0 4px $color-3,
+                 0 0 0 8px $color-4,
+                 0 0 0 12px $color-2
+                ;                
+            }
+
+            h3{
+                font-size: 1.3rem;
+                text-transform: uppercase;
+                letter-spacing: .2rem;
+                margin-top: 1.5rem;
+                color: $color-5;
+            }
+        }
+    }
+    
+    .navigation{
+        // la 2éme grille
+        grid-area: 2;
+        padding: 2rem 1rem;
+        margin: 4rem 0;
+        // height: 70%;
+
+        @media screen and (max-width: 850px){
+            width: 100%;
+            padding: 0.1rem 1rem; 
+            margin: 0;         
+        }
+
+        ul{
+            height: 100%;
+            display: grid;
+
+            @media screen and (max-width: 850px){
+                display: flex;  
+                justify-content: space-between;         
+            }
+            @media screen and (max-width: 580px){
+                justify-content: space-around;            
+            }
+
+            li{
+                padding: 1rem 0 1rem 0.4rem;
+                font-size: 1.3rem;
+                position: relative;
+                
+                @media screen and (max-width: 580px){
+                    padding: 1rem 0 !important;            
+                }
+
+                &:hover i{
+                    transform: translate((3px, 3px));
+                }
+
+                a{
+                    color: $color-5;
+                }
+             //class a injecter pour "NavLink"  
+                .active{
+                    color: $color-4;
+                    border-bottom: 1px solid $color-4;
+                }
+                i{
+                    position: absolute;
+                    font-size: 0.95rem;
+                    transform: translateY(3px);
+                    transition: 0.2s ease;
+
+                    @media screen and (max-width: 580px){
+                       font-size: 1.4rem !important; 
+                       transform: translateY(-3px) !important;           
+                    }
+                }
+
+                span{
+                    margin-left: 2rem;
+
+                    @media screen and (max-width: 850px){
+                        margin-left: 1.5rem !important;          
+                    }
+                    @media screen and (max-width: 580px){
+                        display: none;          
+                    }
+                }
+            }
+        }
+    }
+
+    .socialNetwork{
+        // la 3éme grille
+        grid-area: 3;
+
+        @media screen and (max-width: 850px){
+            display: none;           
+        }
+
+        ul{
+            display: flex;
+            width: 264px;
+            padding: 0 14px;
+            justify-content: space-between;
+
+            @media screen and (max-width: 580px){
+                justify-content: space-around !important;            
+            }
+
+            li{
+                font-size: 1.5rem;
+                background: $color-5;
+                color: $color-1;
+                border-radius: 50%;
+                padding: 5px 8px;
+                transition: 0.3s;
+                cursor: pointer;
+
+                @media screen and (max-width: 580px){
+                    padding: 1rem 0 !important;            
+                }
+
+                a:visited{
+                    color: $color-1;
+                }
+                &:nth-child(1){
+                    padding: 5px 8.5px; 
+                }
+                &:nth-child(4){
+                    padding: 5px 7.5px; 
+                }
+                &:hover{
+                    background: $color-4;
+                }
+            }
+        }
+    }
+    .signature{
+        margin-top: 2rem;
+        text-align: center;
+        letter-spacing: 1px;
+        font-size: 0.7rem;
+
+        p{
+            color: $color-5;
+
+            &:hover{
+                color: $color-4;
+            }
+        }
+    }
+}
